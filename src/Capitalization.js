@@ -20,7 +20,7 @@
 	 * Create the links
 	 */
 	function init() {
-		var $links = $( '.wb-terms .wikibase-toolbareditgroup-editbutton' );
+		var $links = $( '.wb-terms .wikibase-toolbareditgroup-editbutton, .wb-firstHeading .wikibase-toolbareditgroup-editbutton' );
  
 		$links.each( function(){
 			var $link = $(this),
@@ -44,7 +44,7 @@
 							.trigger( 'input' );
 					} )
 					.end()
-				.insertAfter( $parent.parent() );
+				.insertAfter( $parent.is( 'h1 *' )? $parent : $parent.parent() );
 		} );
 	}
  
