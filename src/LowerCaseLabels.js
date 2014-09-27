@@ -4,7 +4,7 @@
  * @license: CC BY-SA 3.0 <https://creativecommons.org/licenses/by-sa/3.0/>
  */
 ( function ( mw, $ ) {
-'use strict';
+	'use strict';
 
 	var i18nData = {
 		'en': {
@@ -13,14 +13,14 @@
 		}
 	};
 	mw.messages.set( $.extend( i18nData.en, i18nData[ mw.config.get( 'wgUserLanguage' ) ] ) );
- 
+
 	/**
 	 * Create the links
 	 */
 	function init() {
 		var $links = $( '.wb-terms .wikibase-toolbareditgroup-editbutton, .wb-firstHeading .wikibase-toolbareditgroup-editbutton' );
- 
-		$links.each( function(){
+
+		$links.each( function () {
 			var $link = $(this),
 				$parent = $link.parent(),
 				$clone = $parent.clone();
@@ -31,7 +31,7 @@
 						href: '#',
 						title: mw.msg( 'link-lower-case-first-description' )
 					} )
-					.click( function( e ){
+					.click( function ( e ) {
 						var $input, val;
 						e.preventDefault();
 						$link.click();
@@ -42,10 +42,10 @@
 							.trigger( 'input' );
 					} )
 					.end()
-				.insertAfter( $parent.is( 'h1 *' )? $parent : $parent.parent() );
+				.insertAfter( $parent.is( 'h1 *' ) ? $parent : $parent.parent() );
 		} );
 	}
- 
+
 	$( init );
 
 }( mediaWiki, jQuery ) );
